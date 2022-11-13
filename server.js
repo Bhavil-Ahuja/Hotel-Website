@@ -2,7 +2,8 @@ const express = require("express");
 
 const app = express();
 
-const dbConfig = require("./db/db");
+require("./db/db");
+require("dotenv").config();
 const path = require("path");
 const roomsRoute = require("./routes/roomsRoute");
 const usersRoute = require("./routes/usersRoute");
@@ -19,9 +20,9 @@ app.use("/api/users", usersRoute);
 app.use("/api/bookings", bookingsRoute);
 
 app.get("/", (req, res) => {
-    console.log("hey");
+    res.send("hey");
 })
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`node server started using nodemon`));
