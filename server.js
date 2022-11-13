@@ -18,6 +18,10 @@ app.use("/api/rooms", roomsRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/bookings", bookingsRoute);
 
+app.get("/", (req, res) => {
+    console.log("hey");
+})
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`node server started using nodemon`));
